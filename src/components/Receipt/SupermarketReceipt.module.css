@@ -1,0 +1,276 @@
+.receiptWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  background: #333;
+  min-height: 100vh;
+}
+
+.receipt {
+  width: 320px;
+  background: white;
+  padding: 20px 15px 30px 15px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+/* Torn paper effect at top and bottom */
+.receipt::before,
+.receipt::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(
+    45deg,
+    transparent 33.333%,
+    white 33.333%,
+    white 66.667%,
+    transparent 66.667%
+  ),
+  linear-gradient(
+    -45deg,
+    transparent 33.333%,
+    white 33.333%,
+    white 66.667%,
+    transparent 66.667%
+  );
+  background-size: 10px 20px;
+  background-position: 0 -10px;
+}
+
+.receipt::before {
+  top: -8px;
+}
+
+.receipt::after {
+  bottom: -8px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  margin-bottom: 5px;
+}
+
+.storeName {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.address {
+  font-size: 10px;
+  line-height: 1.3;
+  color: #333;
+}
+
+.divider {
+  text-align: center;
+  margin: 10px 0;
+  letter-spacing: -1px;
+  color: #666;
+  font-size: 11px;
+}
+
+.info {
+  margin: 10px 0;
+}
+
+.infoLine {
+  display: flex;
+  justify-content: space-between;
+  margin: 2px 0;
+  font-size: 11px;
+}
+
+.items {
+  margin: 15px 0;
+}
+
+.item {
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px dotted #ddd;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.itemHeader {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.itemName {
+  flex: 1;
+  font-size: 11px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 220px;
+}
+
+.itemPrice {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.itemDetail {
+  font-size: 10px;
+  color: #555;
+  margin-left: 10px;
+  margin-top: 2px;
+}
+
+.totals {
+  margin: 15px 0;
+}
+
+.totalLine {
+  display: flex;
+  justify-content: space-between;
+  margin: 3px 0;
+  font-size: 12px;
+}
+
+.totalLineBold {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+  font-size: 14px;
+  font-weight: bold;
+  padding-top: 5px;
+  border-top: 1px solid #000;
+}
+
+.payment {
+  margin: 15px 0;
+}
+
+.paymentLine {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  margin-bottom: 5px;
+}
+
+.paymentDetail {
+  font-size: 10px;
+  color: #555;
+  margin-left: 10px;
+  line-height: 1.4;
+}
+
+.footer {
+  margin: 15px 0;
+  text-align: center;
+}
+
+.barcode {
+  font-family: 'Libre Barcode 39', monospace;
+  font-size: 24px;
+  letter-spacing: 2px;
+  margin: 10px 0;
+  opacity: 0.8;
+}
+
+.footerText {
+  font-size: 10px;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+}
+
+.thanks {
+  font-size: 12px;
+  font-weight: bold;
+  margin: 15px 0;
+  text-align: center;
+}
+
+.loyalty {
+  font-size: 10px;
+  color: #555;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.legal {
+  font-size: 9px;
+  color: #777;
+  text-align: center;
+  margin: 10px 0;
+  line-height: 1.3;
+}
+
+.eco {
+  font-size: 10px;
+  text-align: center;
+  margin: 10px 0;
+  color: #2a7f2a;
+}
+
+.disclaimer {
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px dashed #ccc;
+  text-align: center;
+  font-size: 9px;
+  color: #999;
+  line-height: 1.4;
+}
+
+/* Print styles */
+@media print {
+  .receiptWrapper {
+    background: white;
+    padding: 0;
+    min-height: auto;
+  }
+
+  .receipt {
+    box-shadow: none;
+    width: auto;
+  }
+
+  .receipt::before,
+  .receipt::after {
+    display: none;
+  }
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+  .receipt {
+    width: 100%;
+    font-size: 11px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .itemName {
+    max-width: 180px;
+  }
+}
+.qrCode {
+  display: flex;
+  justify-content: center;
+  margin: 15px auto;
+}

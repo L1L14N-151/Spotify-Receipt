@@ -1,0 +1,314 @@
+.receiptWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0;
+  background: #f5f5f5;
+  min-height: 100vh;
+  overflow-y: visible;
+}
+
+.receipt {
+  background: white;
+  width: 400px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #000;
+  transform: scale(1);
+  transform-origin: top center;
+}
+
+.content {
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.separator {
+  display: block;
+  margin: 10px 0;
+  letter-spacing: -1px;
+  opacity: 0.8;
+}
+
+.section {
+  margin: 15px 0;
+}
+
+.sectionTitle {
+  font-weight: bold;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.item {
+  margin: 8px 0;
+}
+
+.itemName {
+  font-weight: bold;
+}
+
+.artist {
+  font-weight: normal;
+  font-size: 11px;
+}
+
+.itemDetail {
+  font-size: 11px;
+  margin-left: 10px;
+}
+
+.totalLine {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
+.totalBold {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.rewards {
+  text-align: center;
+  margin: 20px 0;
+  padding: 10px;
+  border: 1px dashed #000;
+  background: #fffacd;
+}
+
+.couponsHeader {
+  text-align: center;
+  margin: 30px 0 20px;
+  font-weight: bold;
+}
+
+.coupons {
+  margin-top: 20px;
+}
+
+.coupon {
+  margin: 20px 0;
+  page-break-inside: avoid;
+}
+
+.couponBorder {
+  text-align: center;
+  font-size: 10px;
+  opacity: 0.6;
+  letter-spacing: -2px;
+  overflow: hidden;
+}
+
+.couponContent {
+  padding: 10px;
+  border-left: 1px dashed #cc0000;
+  border-right: 1px dashed #cc0000;
+  background: #fff5f5;
+  text-align: center;
+}
+
+.couponTitle {
+  font-weight: bold;
+  color: #cc0000;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.couponText {
+  font-size: 13px;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #000;
+}
+
+.couponCode {
+  font-size: 11px;
+  color: #666;
+  margin: 5px 0;
+}
+
+.couponExpiry {
+  font-size: 10px;
+  color: #999;
+}
+
+.footer {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 11px;
+}
+
+.barcode {
+  margin: 10px 0;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.finalMessage {
+  margin-top: 15px;
+  font-size: 10px;
+  color: #666;
+  font-style: italic;
+}
+
+/* Special coupon types */
+.errorCoupon {
+  margin: 20px 0;
+  padding: 10px;
+  background: #ffcccc;
+  border: 1px solid #ff0000;
+  text-align: center;
+  font-weight: bold;
+  color: #ff0000;
+}
+
+.errorText {
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.blankCoupon {
+  margin: 30px 0;
+  padding: 20px;
+  text-align: center;
+  opacity: 0.5;
+}
+
+.blankText {
+  font-size: 12px;
+  color: #999;
+  margin: 10px 0;
+}
+
+.blankSubtext {
+  font-size: 10px;
+  color: #666;
+  font-style: italic;
+}
+
+.upsideCoupon {
+  margin: 20px 0;
+  transform: rotate(180deg);
+  opacity: 0.8;
+}
+
+.upsideContent {
+  padding: 10px;
+  background: #f0f0f0;
+  text-align: center;
+}
+
+.adCoupon {
+  margin: 25px 0;
+  padding: 15px;
+  background: linear-gradient(45deg, #ffeb3b 25%, #ff9800 50%, #ffeb3b 75%);
+  border: 1px double #000;
+  text-align: center;
+}
+
+.adHeader {
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+  margin: 10px 0;
+}
+
+.adSubtext {
+  font-size: 10px;
+  font-style: italic;
+  margin-top: 10px;
+}
+
+.expiredCoupon {
+  margin: 20px 0;
+  opacity: 0.4;
+  filter: grayscale(100%);
+}
+
+.expiredContent {
+  padding: 10px;
+  background: #e0e0e0;
+  text-align: center;
+  text-decoration: line-through;
+}
+
+.expiredHeader {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.expiredText {
+  font-size: 11px;
+  color: #999;
+}
+
+.expiredCode {
+  font-size: 10px;
+  color: #999;
+  margin-top: 10px;
+}
+
+.karenCoupon {
+  margin: 20px 0;
+  background: #fff0f5;
+  border: 1px solid #ff1493;
+}
+
+.karenContent {
+  padding: 15px;
+  text-align: center;
+}
+
+.karenHeader {
+  font-size: 14px;
+  color: #ff1493;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.karenQuote {
+  font-size: 11px;
+  font-style: italic;
+  color: #ff1493;
+  margin: 10px 0;
+}
+
+.couponPrice {
+  font-size: 11px;
+  margin: 10px 0;
+  color: #666;
+}
+
+.couponSubtext {
+  font-size: 11px;
+  color: #666;
+  font-style: italic;
+  margin: 5px 0;
+}
+
+@media print {
+  .receiptWrapper {
+    background: white;
+  }
+
+  .receipt {
+    box-shadow: none;
+  }
+}
+.qrCode {
+  display: flex;
+  justify-content: center;
+  margin: 15px auto;
+}

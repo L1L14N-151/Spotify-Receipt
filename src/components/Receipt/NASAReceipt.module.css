@@ -1,0 +1,510 @@
+.receiptWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0;
+  background: #000;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(138, 43, 226, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(0, 191, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
+  min-height: 100vh;
+  overflow-y: visible;
+  position: relative;
+}
+
+.receiptWrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.receipt {
+  background: #0B1929;
+  background-image:
+    linear-gradient(180deg, #0B1929 0%, #000411 100%);
+  width: 500px;
+  border: 1px solid #00bfff;
+  transform: scale(1);
+  transform-origin: center;
+  z-index: 10;
+  box-shadow:
+    0 0 10px rgba(0, 191, 255, 0.3),
+    inset 0 0 10px rgba(0, 191, 255, 0.05);
+  font-family: 'Courier New', monospace;
+  color: #00ff00;
+  position: relative;
+  overflow: visible;
+}
+
+.content {
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.nasaLogo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.nasaSeal {
+  width: 150px !important;
+  height: auto;
+  filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.4))
+          drop-shadow(0 0 20px rgba(0, 191, 255, 0.3));
+}
+
+.missionControl {
+  font-size: 12px;
+  color: #00bfff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 5px 0;
+}
+
+.topSecret {
+  display: inline-block;
+  background: #ff0000;
+  color: white;
+  padding: 2px 8px;
+  font-size: 10px;
+  font-weight: bold;
+  margin: 10px 0;
+  animation: blink 2s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.separator {
+  color: #00ff00;
+  margin: 15px 0;
+  text-align: center;
+  font-size: 10px;
+  opacity: 0.6;
+}
+
+.missionInfo {
+  margin: 20px 0;
+  padding: 15px;
+  border: 1px solid #00bfff;
+  background: rgba(0, 191, 255, 0.03);
+}
+
+.missionTitle {
+  font-size: 14px;
+  font-weight: bold;
+  color: #00bfff;
+  text-align: center;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.missionDetail {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  margin: 8px 0;
+  color: #00ff00;
+}
+
+.missionLabel {
+  color: #888;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+.missionValue {
+  color: #00ff00;
+  font-weight: bold;
+}
+
+.telemetrySection {
+  margin: 20px 0;
+}
+
+.sectionTitle {
+  font-size: 12px;
+  font-weight: bold;
+  color: #00bfff;
+  text-align: center;
+  margin: 15px 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+.sectionTitle::before,
+.sectionTitle::after {
+  content: '◆';
+  position: absolute;
+  color: #00ff00;
+  font-size: 10px;
+}
+
+.sectionTitle::before {
+  left: 20%;
+}
+
+.sectionTitle::after {
+  right: 20%;
+}
+
+.dataEntry {
+  margin: 15px 0;
+  padding: 10px;
+  background: rgba(0, 255, 0, 0.02);
+  border-left: 1px solid #00ff00;
+}
+
+.entryHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.timestamp {
+  font-size: 9px;
+  color: #888;
+  font-family: monospace;
+}
+
+.signalStrength {
+  font-size: 9px;
+  padding: 2px 6px;
+  border-radius: 2px;
+  font-weight: bold;
+}
+
+.signalStrong {
+  background: rgba(0, 255, 0, 0.2);
+  color: #00ff00;
+}
+
+.signalMedium {
+  background: rgba(255, 255, 0, 0.2);
+  color: #ffff00;
+}
+
+.signalWeak {
+  background: rgba(255, 0, 0, 0.2);
+  color: #ff0000;
+}
+
+.trackDesignation {
+  font-size: 11px;
+  font-weight: bold;
+  color: #00ff00;
+  margin: 5px 0;
+  text-transform: uppercase;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.trackCallsign {
+  font-size: 10px;
+  color: #00bfff;
+  margin: 3px 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.telemetryData {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dotted #444;
+}
+
+.telemetryItem {
+  text-align: center;
+}
+
+.telemetryLabel {
+  font-size: 8px;
+  color: #888;
+  text-transform: uppercase;
+}
+
+.telemetryValue {
+  font-size: 10px;
+  color: #00ff00;
+  font-weight: bold;
+  margin-top: 2px;
+}
+
+.systemStatus {
+  margin: 20px 0;
+  padding: 15px;
+  background: rgba(255, 255, 0, 0.02);
+  border: 1px solid #ffff00;
+}
+
+.statusGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.statusItem {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.statusName {
+  color: #888;
+  text-transform: uppercase;
+}
+
+.statusValue {
+  font-weight: bold;
+}
+
+.statusOK {
+  color: #00ff00;
+}
+
+.statusWarning {
+  color: #ffff00;
+}
+
+.statusCritical {
+  color: #ff0000;
+}
+
+.orbitParameters {
+  margin: 20px 0;
+  padding: 15px;
+  background: rgba(138, 43, 226, 0.03);
+  border: 1px solid #8a2be2;
+}
+
+.orbitTitle {
+  font-size: 12px;
+  font-weight: bold;
+  color: #8a2be2;
+  text-align: center;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.orbitGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.orbitParam {
+  text-align: center;
+}
+
+.paramName {
+  font-size: 9px;
+  color: #888;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.paramValue {
+  font-size: 14px;
+  font-weight: bold;
+  color: #00bfff;
+}
+
+.paramUnit {
+  font-size: 8px;
+  color: #888;
+  margin-left: 2px;
+}
+
+.missionSummary {
+  margin: 20px 0;
+  padding: 15px;
+  border: 1px solid #00ff00;
+  background: rgba(0, 255, 0, 0.05);
+}
+
+.summaryTitle {
+  font-size: 12px;
+  font-weight: bold;
+  color: #00ff00;
+  text-align: center;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  margin: 10px 0;
+}
+
+.summaryLabel {
+  color: #888;
+  text-transform: uppercase;
+}
+
+.summaryValue {
+  font-weight: bold;
+  color: #00ff00;
+}
+
+.totalMissionTime {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+  padding-top: 10px;
+  border-top: 1px solid #00ff00;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.totalLabel {
+  color: #00bfff;
+  text-transform: uppercase;
+}
+
+.totalValue {
+  color: #00ff00;
+  font-size: 16px;
+}
+
+.commandSequence {
+  margin: 20px 0;
+  padding: 15px;
+  background: #000;
+  border: 1px dashed #00ff00;
+}
+
+.commandTitle {
+  font-size: 11px;
+  font-weight: bold;
+  color: #00ff00;
+  margin-bottom: 10px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.command {
+  font-size: 10px;
+  color: #00ff00;
+  margin: 5px 0;
+  padding-left: 15px;
+  position: relative;
+  font-family: monospace;
+}
+
+.command::before {
+  content: '>';
+  position: absolute;
+  left: 0;
+  color: #00bfff;
+}
+
+.houstonQuote {
+  text-align: center;
+  margin: 30px 0;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border-left: 1px solid #ff0000;
+  border-right: 1px solid #ff0000;
+}
+
+.quote {
+  font-size: 14px;
+  font-style: italic;
+  color: #00bfff;
+  margin-bottom: 10px;
+}
+
+.quoteSource {
+  font-size: 10px;
+  color: #888;
+  text-transform: uppercase;
+}
+
+.footer {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.footerText {
+  font-size: 10px;
+  color: #00ff00;
+  line-height: 1.5;
+  opacity: 0.8;
+}
+
+.classification {
+  font-size: 12px;
+  color: #ff0000;
+  font-weight: bold;
+  margin: 10px 0;
+  padding: 5px;
+  border: 1px solid #ff0000;
+  background: rgba(255, 0, 0, 0.1);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.endTransmission {
+  margin: 20px 0;
+  font-size: 10px;
+  color: #888;
+  text-align: center;
+  font-style: italic;
+}
+
+.staticNoise {
+  font-size: 8px;
+  color: #444;
+  text-align: center;
+  letter-spacing: -1px;
+  margin: 10px 0;
+  opacity: 0.5;
+}
+
+@media print {
+  .receiptWrapper {
+    background: white;
+  }
+
+  .receipt {
+    background: white;
+    color: black;
+    box-shadow: none;
+    border-color: #000;
+  }
+
+  .content * {
+    color: black !important;
+    background: white !important;
+    text-shadow: none !important;
+  }
+}
+.qrCode {
+  display: flex;
+  justify-content: center;
+  margin: 15px auto;
+}

@@ -1,0 +1,592 @@
+.receiptWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0;
+  background: linear-gradient(180deg, #171a21 0%, #1b2838 100%);
+  border-radius: 8px;
+  margin: 0 auto;
+  position: relative;
+  font-family: 'Motiva Sans', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  min-height: 100vh;
+}
+
+.receipt {
+  background: #1B2838;
+  width: 450px;
+  max-width: 90vw;
+  transform: scale(1);
+  transform-origin: center;
+  position: relative;
+  z-index: 10;
+  border: 1px solid #66c0f4;
+  box-shadow:
+    0 0 10px rgba(102, 192, 244, 0.3),
+    inset 0 0 10px rgba(102, 192, 244, 0.05);
+  color: #C7D5E0;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.scanlines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(102, 192, 244, 0.03) 2px,
+      rgba(102, 192, 244, 0.03) 4px
+    );
+  pointer-events: none;
+  animation: scanlines 8s linear infinite;
+}
+
+@keyframes scanlines {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(10px); }
+}
+
+.content {
+  padding: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  background: linear-gradient(90deg, #00adee, #000000);
+  text-align: center;
+  margin: -12px -12px 12px -12px;
+  padding: 12px;
+  border-bottom: 1px solid #2A475E;
+}
+
+.steamLogo {
+  font-size: 36px;
+  color: white;
+  margin-bottom: 5px;
+  text-shadow: 0 0 20px rgba(0, 173, 238, 0.5);
+}
+
+.steamTitle {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(0, 173, 238, 0.3);
+}
+
+.storeName {
+  font-size: 14px;
+  color: white;
+  margin: 3px 0;
+}
+
+.purchaseInfo {
+  margin-top: 15px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.receiptId, .purchaseDate {
+  font-size: 12px;
+  color: #C7D5E0;
+  opacity: 0.8;
+}
+
+.accountInfo {
+  margin: 15px 0;
+  padding: 10px;
+  background: rgba(42, 71, 94, 0.3);
+  border: 1px solid #2a475e;
+}
+
+.accountLine {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin: 5px 0;
+}
+
+.username {
+  color: #66c0f4;
+  font-weight: bold;
+}
+
+.level {
+  color: #FFD700;
+  font-weight: bold;
+}
+
+.xp {
+  color: #90EE90;
+  font-weight: bold;
+}
+
+.separator {
+  text-align: center;
+  color: #2a475e;
+  margin: 15px 0;
+  font-size: 12px;
+}
+
+.sectionTitle {
+  font-size: 14px;
+  font-weight: bold;
+  color: #66c0f4;
+  text-align: center;
+  margin: 15px 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.cartIcon {
+  margin-right: 8px;
+}
+
+.items {
+  margin: 20px 0;
+}
+
+.item {
+  margin: 12px 0;
+  padding: 10px;
+  background: rgba(42, 71, 94, 0.2);
+  border-left: 1px solid #66c0f4;
+  transition: all 0.2s;
+}
+
+.item:hover {
+  background: #2A475E;
+  transform: none;
+}
+
+.itemHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 5px;
+}
+
+.rarity {
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.common {
+  color: #b0b0b0;
+}
+
+.uncommon {
+  color: #90EE90;
+}
+
+.rare {
+  color: #4169E1;
+}
+
+.epic {
+  color: #9370DB;
+}
+
+.legendary {
+  color: #FFD700;
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+.itemName {
+  font-size: 13px;
+  font-weight: bold;
+  color: #c7d5e0;
+}
+
+.itemTree {
+  font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+  font-size: 11px;
+  color: #8f98a0;
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+.itemTree > div {
+  margin-left: 10px;
+}
+
+.playing {
+  color: #3fb950;
+  font-weight: bold;
+  animation: pulse 2s infinite;
+}
+
+.inLibrary {
+  color: #8b949e;
+  font-style: italic;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.achievementContent {
+  flex: 1;
+}
+
+.achievementUnlocked {
+  font-size: 10px;
+  color: #FFD700;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.achievementDesc {
+  font-size: 11px;
+  color: #8f98a0;
+  margin-top: 4px;
+}
+
+.itemDeveloper {
+  font-size: 11px;
+  color: #8f98a0;
+  margin: 3px 0;
+  padding-left: 10px;
+}
+
+.itemStats {
+  display: flex;
+  gap: 15px;
+  margin: 8px 0;
+  padding-left: 10px;
+}
+
+.stat {
+  display: flex;
+  gap: 5px;
+  font-size: 11px;
+}
+
+.statLabel {
+  color: #8f98a0;
+  font-weight: bold;
+}
+
+.statValue {
+  color: #66c0f4;
+}
+
+.itemFooter {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dotted #2a475e;
+}
+
+.dlcType {
+  font-size: 10px;
+  color: #8f98a0;
+  font-style: italic;
+}
+
+.itemPrice {
+  font-size: 12px;
+  font-weight: bold;
+  color: #90EE90;
+}
+
+.achievements {
+  margin: 20px 0;
+  padding: 15px;
+  background: rgba(255, 215, 0, 0.05);
+  border: 1px solid #FFD700;
+}
+
+.achievementsTitle {
+  font-size: 14px;
+  font-weight: bold;
+  color: #FFD700;
+  text-align: center;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.achievementList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.achievement {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  background: #0E141B;
+  border: 1px solid #4B619B;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.achievementIcon {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, gold, #FFD700);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.achievementName {
+  font-size: 12px;
+  color: #c7d5e0;
+  flex: 1;
+}
+
+.achievementRarity {
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 4px;
+  color: #8f98a0;
+}
+
+.rarityLegendary {
+  color: #FFD700 !important;
+  text-shadow: 0 0 3px rgba(255, 215, 0, 0.3);
+}
+
+.rarityEpic {
+  color: #9370DB !important;
+}
+
+.rarityRare {
+  color: #4169E1 !important;
+}
+
+.noAchievements {
+  text-align: center;
+  font-size: 12px;
+  color: #8f98a0;
+  font-style: italic;
+}
+
+.stats {
+  margin: 20px 0;
+  padding: 15px;
+  background: rgba(102, 192, 244, 0.05);
+  border: 1px solid #66c0f4;
+}
+
+.statsTitle {
+  font-size: 13px;
+  font-weight: bold;
+  color: #66c0f4;
+  text-align: center;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.statGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.statItem {
+  text-align: center;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.statItemLabel {
+  font-size: 10px;
+  color: #8f98a0;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.statItemValue {
+  font-size: 14px;
+  font-weight: bold;
+  color: #66c0f4;
+}
+
+.checkout {
+  margin: 20px 0;
+  padding: 15px;
+  background: rgba(42, 71, 94, 0.3);
+}
+
+.checkoutLine {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin: 5px 0;
+  color: #c7d5e0;
+}
+
+.discount {
+  color: #90EE90;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: bold;
+  color: #66c0f4;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #66c0f4;
+  text-shadow: 0 0 5px rgba(102, 192, 244, 0.5);
+}
+
+.paymentMethod {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.paymentTitle {
+  font-size: 12px;
+  font-weight: bold;
+  color: #66c0f4;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.paymentOption {
+  font-size: 12px;
+  color: #90EE90;
+  margin: 5px 0;
+}
+
+.downloadInfo {
+  margin: 20px 0;
+  padding: 15px;
+  background: rgba(144, 238, 144, 0.05);
+  border: 1px solid #90EE90;
+  text-align: center;
+}
+
+.downloadTitle {
+  font-size: 13px;
+  font-weight: bold;
+  color: #90EE90;
+  margin-bottom: 10px;
+}
+
+.downloadText {
+  font-size: 11px;
+  color: #c7d5e0;
+  margin: 5px 0;
+}
+
+.downloadSpeed {
+  font-size: 10px;
+  color: #8f98a0;
+  margin: 5px 0;
+}
+
+.downloadBar {
+  height: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid #2a475e;
+  margin: 10px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.downloadProgress {
+  height: 100%;
+  background: linear-gradient(90deg, #90EE90, #66c0f4);
+  width: 100%;
+  animation: download 2s ease-out;
+}
+
+@keyframes download {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+.downloadComplete {
+  font-size: 12px;
+  font-weight: bold;
+  color: #90EE90;
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+
+.footer {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 11px;
+  color: #8f98a0;
+}
+
+.orderId {
+  font-size: 12px;
+  color: #66c0f4;
+  margin: 5px 0;
+}
+
+.date {
+  margin: 5px 0;
+}
+
+.barcode {
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin: 10px 0;
+  color: #2a475e;
+}
+
+.message {
+  font-size: 13px;
+  color: #c7d5e0;
+  margin: 10px 0;
+}
+
+.glhf {
+  font-size: 16px;
+  font-weight: bold;
+  color: #66c0f4;
+  margin: 10px 0;
+  text-shadow: 0 0 10px rgba(102, 192, 244, 0.5);
+}
+
+.copyright {
+  font-size: 10px;
+  color: #8f98a0;
+  margin-top: 15px;
+}
+
+@media print {
+  .receiptWrapper {
+    background: white;
+  }
+  
+  .receipt {
+    background: white;
+    color: black;
+    box-shadow: none;
+  }
+  
+  .content * {
+    color: black !important;
+    text-shadow: none !important;
+  }
+}
+.qrCode {
+  display: flex;
+  justify-content: center;
+  margin: 15px auto;
+}

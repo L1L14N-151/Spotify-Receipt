@@ -1,0 +1,433 @@
+/* Spotify Theme - Receipt Page */
+.receiptPage {
+  min-height: 100vh;
+  background: #000;
+  position: relative;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px;
+  background: #000;
+  border-bottom: 1px solid #282828;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.titleSection {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #1db954 0%, #1ed760 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.userSection {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.userIcon {
+  width: 64px;
+  height: 64px;
+  color: #b3b3b3;
+  transition: color 0.2s ease;
+}
+
+.userAvatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.userSection:hover .userAvatar {
+  border-color: #1db954;
+}
+
+.userSection:hover .userIcon {
+  color: #fff;
+}
+
+.logoutButton {
+  padding: 8px 20px;
+  background: transparent;
+  color: #b3b3b3;
+  border: 1px solid #727272;
+  border-radius: 500px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.1px;
+}
+
+.logoutButton:hover {
+  color: #fff;
+  border-color: #fff;
+  transform: scale(1.04);
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 32px;
+  background: #121212;
+  border-bottom: 1px solid #282828;
+  flex-wrap: wrap;
+}
+
+.controlsLeft {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Selectors */
+.timeRangeSelector,
+.trackLimitSelector {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.timeRangeSelector label,
+.trackLimitSelector label {
+  font-weight: 400;
+  color: #b3b3b3;
+  font-size: 0.875rem;
+}
+
+.select {
+  padding: 8px 32px 8px 12px;
+  border: 0;
+  border-radius: 4px;
+  background: #282828;
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background 0.1s ease;
+  outline: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 6l5 5 5-5' stroke='%23b3b3b3' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+}
+
+.select:hover {
+  background-color: #3e3e3e;
+}
+
+.select:focus {
+  outline: 2px solid #1db954;
+  outline-offset: 2px;
+}
+
+/* Generate button */
+.generateButton {
+  padding: 12px 32px;
+  background: #1db954;
+  color: #000;
+  border: none;
+  border-radius: 500px;
+  font-weight: 700;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.1px;
+}
+
+.generateButton:hover:not(:disabled) {
+  background: #1ed760;
+  transform: scale(1.04);
+}
+
+.generateButton:active {
+  background: #1db954;
+  transform: scale(1);
+}
+
+.generateButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Content */
+.content {
+  display: flex;
+  justify-content: center;
+  padding: 32px;
+  position: relative;
+  min-height: calc(100vh - 200px);
+  gap: 32px;
+}
+
+.receiptContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  max-width: 600px;
+  position: relative;
+}
+
+.exportSection {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sidePanel {
+  position: static;
+  margin-left: 32px;
+  flex-shrink: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sidePanel {
+    margin-left: 0;
+    margin-top: 32px;
+    width: 100%;
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .logo {
+    width: 64px;
+    height: 64px;
+  }
+
+  .title {
+    font-size: 1.25rem;
+  }
+
+  .userAvatar,
+  .userIcon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .controls {
+    flex-direction: column;
+    padding: 16px;
+    gap: 16px;
+    align-items: stretch;
+  }
+
+  .controlsLeft {
+    width: 100%;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .exportSection {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .timeRangeSelector,
+  .trackLimitSelector {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .select {
+    flex: 1;
+    max-width: 200px;
+  }
+
+  .content {
+    padding: 16px;
+  }
+
+  .sidePanel {
+    width: 100%;
+    position: static;
+    right: auto;
+    top: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .userAvatar,
+  .userIcon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logoutButton {
+    padding: 6px 16px;
+    font-size: 0.75rem;
+  }
+}
+
+/* Loading */
+.loading {
+  text-align: center;
+  padding: 48px;
+  background: #121212;
+  border-radius: 8px;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 3px solid #282828;
+  border-top-color: #1db954;
+  border-radius: 50%;
+  margin: 0 auto 24px;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading p {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Error */
+.error {
+  text-align: center;
+  padding: 48px;
+  background: #121212;
+  border-radius: 8px;
+}
+
+.error p {
+  color: #f15e6c;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.error button {
+  padding: 12px 32px;
+  background: #f15e6c;
+  color: #fff;
+  border: none;
+  border-radius: 500px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.1px;
+  font-size: 0.875rem;
+}
+
+.error button:hover {
+  transform: scale(1.04);
+}
+
+/* No data */
+.noData {
+  text-align: center;
+  padding: 48px;
+  background: #121212;
+  border-radius: 8px;
+}
+
+.noData p {
+  color: #b3b3b3;
+  font-weight: 400;
+  margin: 8px 0;
+}
+
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    order: -1;
+    position: relative;
+    top: 0;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 16px;
+  }
+
+  .title {
+    font-size: 1.25rem;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 24px 16px;
+  }
+
+  .timeRangeSelector,
+  .trackLimitSelector {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .generateButton {
+    width: 100%;
+    margin-top: 16px;
+  }
+
+  .content {
+    padding: 16px;
+  }
+
+  .exportSection {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    margin-top: 24px;
+  }
+}

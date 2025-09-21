@@ -1,0 +1,75 @@
+/* Spotify Theme - Auth Button */
+.authContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 2rem 0;
+}
+
+.authButton {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 14px 32px;
+  background: #1db954;
+  color: #000;
+  border: none;
+  border-radius: 500px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.1px;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  text-transform: uppercase;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+
+.authButton:hover {
+  background: #1ed760;
+  transform: scale(1.04);
+}
+
+.authButton:active {
+  background: #1db954;
+  transform: scale(1);
+}
+
+.spotifyLogo {
+  width: 21px;
+  height: 21px;
+  fill: #000;
+}
+
+.authDescription {
+  font-size: 0.6875rem;
+  color: #535353;
+  text-align: center;
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+/* Disabled state */
+.authButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.authButton:disabled:hover {
+  transform: none;
+  background: #1db954;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .authButton {
+    padding: 12px 28px;
+    font-size: 0.8125rem;
+  }
+
+  .spotifyLogo {
+    width: 18px;
+    height: 18px;
+  }
+}

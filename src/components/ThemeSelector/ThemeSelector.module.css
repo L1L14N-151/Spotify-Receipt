@@ -1,0 +1,166 @@
+/* Spotify Theme - Theme Selector */
+.themeSelector {
+  width: 100%;
+  max-width: 360px;
+}
+
+.title {
+  margin: 0 0 20px 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.themeGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  max-height: calc(100vh - 320px);
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+/* Scrollbar */
+.themeGrid::-webkit-scrollbar {
+  width: 12px;
+}
+
+.themeGrid::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.themeGrid::-webkit-scrollbar-thumb {
+  background: #535353;
+  border-radius: 100px;
+  border: 3px solid #121212;
+}
+
+.themeGrid::-webkit-scrollbar-thumb:hover {
+  background: #b3b3b3;
+}
+
+/* Theme button */
+.themeButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 12px;
+  background: #181818;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  position: relative;
+}
+
+.themeButton:hover {
+  background: #282828;
+}
+
+.themeButton.active {
+  background: #282828;
+}
+
+.themeButton.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: #1db954;
+  border-radius: 4px 0 0 4px;
+}
+
+.themeIcon {
+  font-size: 1.75rem;
+  filter: grayscale(20%);
+}
+
+.themeButton.active .themeIcon {
+  filter: grayscale(0%);
+}
+
+.themeName {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #b3b3b3;
+  text-align: center;
+}
+
+.themeButton.active .themeName {
+  color: #fff;
+}
+
+.themeDescription {
+  font-size: 0.6875rem;
+  color: #535353;
+  text-align: center;
+}
+
+.themeButton.active .themeDescription {
+  color: #b3b3b3;
+}
+
+/* Disabled */
+.themeButton.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.themeButton.disabled:hover {
+  background: #181818;
+}
+
+.comingSoon {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #535353;
+  color: #000;
+  font-size: 0.625rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .themeGrid {
+    grid-template-columns: 1fr;
+    max-height: 400px;
+  }
+
+  .themeButton {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 16px;
+    padding: 12px 16px;
+  }
+
+  .themeIcon {
+    font-size: 1.5rem;
+  }
+
+  .themeName {
+    text-align: left;
+  }
+
+  .themeDescription {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .themeSelector {
+    padding: 16px;
+  }
+
+  .themeGrid {
+    gap: 4px;
+  }
+}
