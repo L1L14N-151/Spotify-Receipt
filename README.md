@@ -52,16 +52,16 @@ Open [http://127.0.0.1:5173](http://127.0.0.1:5173)
 ## 📸 Screenshots
 
 ### Home Page
-![Home Page](screenshots/home.png)
+![Home Page](screenshots/home-login-page.png)
 *Clean login interface with Spotify authentication*
 
 ### Receipt Examples
 
 <table>
   <tr>
-    <td><img src="screenshots/polaroid-theme.png" alt="Polaroid Theme" width="300"/></td>
-    <td><img src="screenshots/cvs-theme.png" alt="CVS Theme" width="300"/></td>
-    <td><img src="screenshots/casino-theme.png" alt="Casino Theme" width="300"/></td>
+    <td><img src="screenshots/polaroid-instant-photos.png" alt="Polaroid Theme" width="300"/></td>
+    <td><img src="screenshots/cvs-pharmacy-receipt.png" alt="CVS Theme" width="300"/></td>
+    <td><img src="screenshots/casino-golden-ticket.png" alt="Casino Theme" width="300"/></td>
   </tr>
   <tr>
     <td align="center"><b>Polaroid</b><br>Instant photo memories</td>
@@ -69,9 +69,9 @@ Open [http://127.0.0.1:5173](http://127.0.0.1:5173)
     <td align="center"><b>Casino</b><br>Vegas golden ticket</td>
   </tr>
   <tr>
-    <td><img src="screenshots/nasa-theme.png" alt="NASA Theme" width="300"/></td>
-    <td><img src="screenshots/github-theme.png" alt="GitHub Theme" width="300"/></td>
-    <td><img src="screenshots/matrix-theme.png" alt="Matrix Theme" width="300"/></td>
+    <td><img src="screenshots/nasa-mission-log.png" alt="NASA Theme" width="300"/></td>
+    <td><img src="screenshots/github-contributions.png" alt="GitHub Theme" width="300"/></td>
+    <td><img src="screenshots/matrix-digital-rain.png" alt="Matrix Theme" width="300"/></td>
   </tr>
   <tr>
     <td align="center"><b>NASA</b><br>Space mission log</td>
@@ -83,11 +83,11 @@ Open [http://127.0.0.1:5173](http://127.0.0.1:5173)
 ### Features in Action
 
 #### 🎚️ Live Controls
-![Controls](screenshots/controls.png)
+![Controls](screenshots/control-panel.png)
 *Adjust time range, track count, and themes in real-time*
 
 #### 💾 Export Options
-![Export Modal](screenshots/export-modal.png)
+![Export Modal](screenshots/export-options-modal.png)
 *Export in multiple formats and resolutions up to 4K*
 
 ## 🎨 All Available Themes
