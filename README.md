@@ -11,6 +11,10 @@ Transform your Spotify listening history into stylish receipt designs.
 - 📱 **Responsive** - Works on all devices
 - ⚡ **Live Updates** - Real-time theme and track changes
 
+## 🎯 Live Demo
+
+🔗 **[Try it now!](https://spotify-receipt-som.vercel.app/)**
+
 ## 🚀 Quick Start
 
 ### Prerequisites
@@ -45,7 +49,48 @@ npm run dev
 ```
 Open [http://127.0.0.1:5173](http://127.0.0.1:5173)
 
-## 🎨 Themes
+## 📸 Screenshots
+
+### Home Page
+![Home Page](screenshots/home.png)
+*Clean login interface with Spotify authentication*
+
+### Receipt Examples
+
+<table>
+  <tr>
+    <td><img src="screenshots/polaroid-theme.png" alt="Polaroid Theme" width="300"/></td>
+    <td><img src="screenshots/cvs-theme.png" alt="CVS Theme" width="300"/></td>
+    <td><img src="screenshots/casino-theme.png" alt="Casino Theme" width="300"/></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Polaroid</b><br>Instant photo memories</td>
+    <td align="center"><b>CVS</b><br>Pharmacy receipt style</td>
+    <td align="center"><b>Casino</b><br>Vegas golden ticket</td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/nasa-theme.png" alt="NASA Theme" width="300"/></td>
+    <td><img src="screenshots/github-theme.png" alt="GitHub Theme" width="300"/></td>
+    <td><img src="screenshots/matrix-theme.png" alt="Matrix Theme" width="300"/></td>
+  </tr>
+  <tr>
+    <td align="center"><b>NASA</b><br>Space mission log</td>
+    <td align="center"><b>GitHub</b><br>Code contributions</td>
+    <td align="center"><b>Matrix</b><br>Digital rain effect</td>
+  </tr>
+</table>
+
+### Features in Action
+
+#### 🎚️ Live Controls
+![Controls](screenshots/controls.png)
+*Adjust time range, track count, and themes in real-time*
+
+#### 💾 Export Options
+![Export Modal](screenshots/export-modal.png)
+*Export in multiple formats and resolutions up to 4K*
+
+## 🎨 All Available Themes
 
 - **CVS** - Pharmacy receipt
 - **Casino** - Golden Vegas style
