@@ -82,6 +82,22 @@ Open [http://127.0.0.1:5173](http://127.0.0.1:5173)
     <td align="center"><b>💻 GitHub</b><br>Code contributions</td>
     <td align="center"><b>🟩 Matrix</b><br>Digital rain effect</td>
   </tr>
+  <tr>
+    <td><img src="screenshots/breaking-bad-receipt.png" alt="Breaking Bad Theme" width="500"/></td>
+    <td><img src="screenshots/mcdonalds-receipt.png" alt="McDonald's Theme" width="500"/></td>
+  </tr>
+  <tr>
+    <td align="center"><b>🧪 Breaking Bad</b><br>Los Pollos Hermanos</td>
+    <td align="center"><b>🍟 McDonald's</b><br>Fast food order</td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/carrefour-receipt.png" alt="Carrefour Theme" width="500"/></td>
+    <td><img src="screenshots/gaming-steam-receipt.png" alt="Gaming Theme" width="500"/></td>
+  </tr>
+  <tr>
+    <td align="center"><b>🛒 Carrefour</b><br>French supermarket</td>
+    <td align="center"><b>🎮 Gaming</b><br>Steam purchase receipt</td>
+  </tr>
 </table>
 
 ### Features in Action
