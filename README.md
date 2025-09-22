@@ -59,24 +59,28 @@ Open [http://127.0.0.1:5173](http://127.0.0.1:5173)
 
 <table>
   <tr>
-    <td><img src="screenshots/polaroid-instant-photos.png" alt="Polaroid Theme" width="300"/></td>
-    <td><img src="screenshots/cvs-pharmacy-receipt.png" alt="CVS Theme" width="300"/></td>
-    <td><img src="screenshots/casino-golden-ticket.png" alt="Casino Theme" width="300"/></td>
+    <td><img src="screenshots/polaroid-instant-photos.png" alt="Polaroid Theme" width="500"/></td>
+    <td><img src="screenshots/cvs-pharmacy-receipt.png" alt="CVS Theme" width="500"/></td>
   </tr>
   <tr>
-    <td align="center"><b>Polaroid</b><br>Instant photo memories</td>
-    <td align="center"><b>CVS</b><br>Pharmacy receipt style</td>
-    <td align="center"><b>Casino</b><br>Vegas golden ticket</td>
+    <td align="center"><b>🎞️ Polaroid</b><br>Instant photo memories</td>
+    <td align="center"><b>💊 CVS</b><br>Pharmacy receipt style</td>
   </tr>
   <tr>
-    <td><img src="screenshots/nasa-mission-log.png" alt="NASA Theme" width="300"/></td>
-    <td><img src="screenshots/github-contributions.png" alt="GitHub Theme" width="300"/></td>
-    <td><img src="screenshots/matrix-digital-rain.png" alt="Matrix Theme" width="300"/></td>
+    <td><img src="screenshots/casino-golden-ticket.png" alt="Casino Theme" width="500"/></td>
+    <td><img src="screenshots/nasa-mission-log.png" alt="NASA Theme" width="500"/></td>
   </tr>
   <tr>
-    <td align="center"><b>NASA</b><br>Space mission log</td>
-    <td align="center"><b>GitHub</b><br>Code contributions</td>
-    <td align="center"><b>Matrix</b><br>Digital rain effect</td>
+    <td align="center"><b>🎰 Casino</b><br>Vegas golden ticket</td>
+    <td align="center"><b>🚀 NASA</b><br>Space mission log</td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/github-contributions.png" alt="GitHub Theme" width="500"/></td>
+    <td><img src="screenshots/matrix-digital-rain.png" alt="Matrix Theme" width="500"/></td>
+  </tr>
+  <tr>
+    <td align="center"><b>💻 GitHub</b><br>Code contributions</td>
+    <td align="center"><b>🟩 Matrix</b><br>Digital rain effect</td>
   </tr>
 </table>
 
