@@ -117,30 +117,25 @@
 
 /* Demo Button */
 .demoButton {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border: none;
-  padding: 0.875rem 1.75rem;
+  background: transparent;
+  color: #b3b3b3;
+  border: 1px solid #727272;
+  padding: 0.75rem 2rem;
   border-radius: 500px;
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 0.875rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  transition: all 0.1s ease;
   margin: 0 auto;
-  box-shadow: 0 4px 6px rgba(102, 126, 234, 0.2);
   font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0.1px;
 }
 
 .demoButton:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 12px rgba(102, 126, 234, 0.3);
-}
-
-.demoIcon {
-  font-size: 1.25rem;
+  color: #fff;
+  border-color: #fff;
+  transform: scale(1.04);
 }
 
 /* Privacy text */

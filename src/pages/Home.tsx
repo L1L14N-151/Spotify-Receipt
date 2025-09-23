@@ -45,7 +45,6 @@ const Home: React.FC = () => {
           onClick={handleDemoClick}
           className={styles.demoButton}
         >
-          <span className={styles.demoIcon}>🎮</span>
           Try Demo Mode
         </button>
 
