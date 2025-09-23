@@ -4,68 +4,117 @@ import { AppContext } from '../context/AppContext';
 import ThemedReceipt from '../components/Receipt/ThemedReceipt';
 import ThemeSelector from '../components/ThemeSelector/ThemeSelector';
 import ExportButton from '../components/ExportButton/ExportButton';
-import { demoDataService, DemoTrackInput } from '../services/demo/DemoDataService';
-import themeService from '../services/theme/ThemeService';
 import receiptService from '../services/receipt/ReceiptService';
-import spotifyReceiptLogo from '../assets/spotify-receipt-logo.png';
+import themeService from '../services/theme/ThemeService';
+import { TimeRange, SpotifyTrack } from '../types';
 import styles from './Receipt.module.css';
+import spotifyReceiptLogo from '../assets/spotify-receipt-logo.png';
 
 const Demo: React.FC = () => {
   const navigate = useNavigate();
   const { state, dispatch } = useContext(AppContext);
-  const { receipt } = state;
 
   const [currentTheme, setCurrentTheme] = useState('cvs');
-  const [trackLimit, setTrackLimit] = useState(10);
-  const [customMode, setCustomMode] = useState(false);
-  const [customTracks, setCustomTracks] = useState<DemoTrackInput[]>([]);
-  const [newTrack, setNewTrack] = useState({ name: '', artist: '', playCount: 50 });
+  const [trackLimit, setTrackLimit] = useState<5 | 10 | 15 | 20 | 25>(10);
+  const [editMode, setEditMode] = useState(false);
+  const [customTracks, setCustomTracks] = useState<Array<{ name: string; artist: string; playCount: number }>>([]);
 
-  // Generate demo receipt
-  const generateDemoReceipt = () => {
-    const tracks = customTracks.length > 0
-      ? demoDataService.mixTracks(customTracks, trackLimit)
-      : demoDataService.generatePresetTracks(trackLimit);
+  // Initialize with default tracks
+  const defaultTracks = [
+    { name: "Flowers", artist: "Miley Cyrus", playCount: 127 },
+    { name: "As It Was", artist: "Harry Styles", playCount: 89 },
+    { name: "Unholy", artist: "Sam Smith & Kim Petras", playCount: 76 },
+    { name: "Kill Bill", artist: "SZA", playCount: 65 },
+    { name: "Anti-Hero", artist: "Taylor Swift", playCount: 58 },
+    { name: "Cruel Summer", artist: "Taylor Swift", playCount: 52 },
+    { name: "Paint The Town Red", artist: "Doja Cat", playCount: 47 },
+    { name: "Vampire", artist: "Olivia Rodrigo", playCount: 43 },
+    { name: "Seven", artist: "Jung Kook feat. Latto", playCount: 38 },
+    { name: "What Was I Made For?", artist: "Billie Eilish", playCount: 35 },
+    { name: "Greedy", artist: "Tate McRae", playCount: 32 },
+    { name: "Strangers", artist: "Kenya Grace", playCount: 29 },
+    { name: "Water", artist: "Tyla", playCount: 27 },
+    { name: "Snooze", artist: "SZA", playCount: 24 },
+    { name: "Lovin On Me", artist: "Jack Harlow", playCount: 22 },
+    { name: "Agora Hills", artist: "Doja Cat", playCount: 19 },
+    { name: "Monaco", artist: "Bad Bunny", playCount: 17 },
+    { name: "Ella Baila Sola", artist: "Eslabon Armado", playCount: 15 },
+    { name: "Daylight", artist: "David Kushner", playCount: 13 },
+    { name: "Houdini", artist: "Dua Lipa", playCount: 11 },
+    { name: "Is It Over Now?", artist: "Taylor Swift", playCount: 9 },
+    { name: "Lala", artist: "Myke Towers", playCount: 7 },
+    { name: "Used To Be Young", artist: "Miley Cyrus", playCount: 5 },
+    { name: "Moonlight", artist: "Kali Uchis", playCount: 3 },
+    { name: "BZRP Music Sessions #53", artist: "Shakira & Bizarrap", playCount: 2 }
+  ];
+
+  useEffect(() => {
+    // Initialize custom tracks with default tracks
+    if (customTracks.length === 0) {
+      setCustomTracks(defaultTracks);
+    }
+  }, []);
+
+  // Generate receipt whenever tracks or theme changes
+  useEffect(() => {
+    if (customTracks.length > 0) {
+      generateReceipt();
+    }
+  }, [customTracks, currentTheme, trackLimit]);
+
+  const generateReceipt = () => {
+    // Convert custom tracks to SpotifyTrack format
+    const spotifyTracks: SpotifyTrack[] = customTracks.slice(0, trackLimit).map((track, index) => ({
+      id: `demo-${index}`,
+      name: track.name,
+      artists: [{ name: track.artist }],
+      album: {
+        name: "Demo Album",
+        images: [
+          {
+            url: `https://picsum.photos/seed/${track.name}/640/640`,
+            height: 640,
+            width: 640
+          }
+        ]
+      },
+      durationMs: 180000 + Math.floor(Math.random() * 120000), // 3-5 minutes
+      playCount: track.playCount,
+      albumArtUrl: `https://picsum.photos/seed/${track.name}/640/640`
+    }));
 
     const themeObj = themeService.getTheme(currentTheme) || themeService.getDefaultTheme();
-    const demoReceipt = receiptService.generateReceipt(tracks, themeObj, 'medium_term');
+    const receipt = receiptService.generateReceipt(spotifyTracks, themeObj, 'medium_term' as TimeRange);
 
-    dispatch({ type: 'SET_RECEIPT', payload: demoReceipt });
-    dispatch({ type: 'SET_TRACKS', payload: tracks.slice(0, trackLimit) });
+    dispatch({ type: 'SET_RECEIPT', payload: receipt });
+    dispatch({ type: 'SET_TRACKS', payload: spotifyTracks });
   };
-
-  // Generate initial demo receipt
-  useEffect(() => {
-    generateDemoReceipt();
-  }, [trackLimit, currentTheme, customTracks]);
 
   const handleThemeChange = (themeId: string) => {
     setCurrentTheme(themeId);
     dispatch({ type: 'SET_THEME', payload: themeId });
   };
 
-  const handleTrackLimitChange = (limit: number) => {
+  const handleTrackLimitChange = (limit: 5 | 10 | 15 | 20 | 25) => {
     setTrackLimit(limit);
   };
 
-  const handleAddCustomTrack = () => {
-    if (newTrack.name && newTrack.artist) {
-      setCustomTracks([...customTracks, newTrack]);
-      setNewTrack({ name: '', artist: '', playCount: 50 });
+  const handleTrackEdit = (index: number, field: 'name' | 'artist' | 'playCount', value: string | number) => {
+    const updatedTracks = [...customTracks];
+    if (field === 'playCount') {
+      updatedTracks[index][field] = Number(value);
+    } else {
+      updatedTracks[index][field] = value as string;
     }
-  };
-
-  const handleRemoveCustomTrack = (index: number) => {
-    setCustomTracks(customTracks.filter((_, i) => i !== index));
-  };
-
-  const handleResetToPreset = () => {
-    setCustomTracks([]);
-    setCustomMode(false);
+    setCustomTracks(updatedTracks);
   };
 
   const handleExitDemo = () => {
     navigate('/');
+  };
+
+  const handleResetTracks = () => {
+    setCustomTracks(defaultTracks);
   };
 
   return (
@@ -85,91 +134,85 @@ const Demo: React.FC = () => {
 
       <div className={styles.controls}>
         <div className={styles.controlsLeft}>
-          <div className={styles.controlGroup}>
-            <label className={styles.controlLabel}>Number of Tracks</label>
-            <div className={styles.sliderContainer}>
-              <input
-                type="range"
-                min="1"
-                max="25"
-                value={trackLimit}
-                onChange={(e) => handleTrackLimitChange(Number(e.target.value))}
-                className={styles.slider}
-              />
-              <span className={styles.sliderValue}>{trackLimit}</span>
-            </div>
-          </div>
-
-          <div className={styles.controlGroup}>
-            <button
-              onClick={() => setCustomMode(!customMode)}
-              className={styles.customButton}
+          <div className={styles.trackLimitSelector}>
+            <label htmlFor="trackLimit">Number of Tracks:</label>
+            <select
+              id="trackLimit"
+              value={trackLimit}
+              onChange={(e) => handleTrackLimitChange(Number(e.target.value) as 5 | 10 | 15 | 20 | 25)}
+              className={styles.select}
             >
-              {customMode ? '📝 Custom Tracks' : '🎵 Preset Tracks'}
-            </button>
-            {customTracks.length > 0 && (
-              <button onClick={handleResetToPreset} className={styles.resetButton}>
-                Reset to Preset
-              </button>
-            )}
+              <option value="5">5 Tracks</option>
+              <option value="10">10 Tracks</option>
+              <option value="15">15 Tracks</option>
+              <option value="20">20 Tracks</option>
+              <option value="25">25 Tracks</option>
+            </select>
           </div>
 
-          {customMode && (
-            <div className={styles.customTrackForm}>
-              <h3>Add Custom Track</h3>
-              <input
-                type="text"
-                placeholder="Song name"
-                value={newTrack.name}
-                onChange={(e) => setNewTrack({ ...newTrack, name: e.target.value })}
-                className={styles.customInput}
-              />
-              <input
-                type="text"
-                placeholder="Artist"
-                value={newTrack.artist}
-                onChange={(e) => setNewTrack({ ...newTrack, artist: e.target.value })}
-                className={styles.customInput}
-              />
-              <input
-                type="number"
-                placeholder="Play count"
-                min="1"
-                max="999"
-                value={newTrack.playCount}
-                onChange={(e) => setNewTrack({ ...newTrack, playCount: Number(e.target.value) })}
-                className={styles.customInput}
-              />
-              <button onClick={handleAddCustomTrack} className={styles.addButton}>
-                Add Track
-              </button>
+          <button
+            onClick={() => setEditMode(!editMode)}
+            className={`${styles.editButton} ${editMode ? styles.active : ''}`}
+            style={{ marginLeft: '1rem' }}
+          >
+            {editMode ? '✓ Save' : '✏️ Edit Tracks'}
+          </button>
 
-              {customTracks.length > 0 && (
-                <div className={styles.customTrackList}>
-                  <h4>Your Custom Tracks:</h4>
-                  {customTracks.map((track, index) => (
-                    <div key={index} className={styles.customTrackItem}>
-                      <span>{track.name} - {track.artist} ({track.playCount}×)</span>
-                      <button
-                        onClick={() => handleRemoveCustomTrack(index)}
-                        className={styles.removeButton}
-                      >
-                        ×
-                      </button>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
+          <button
+            onClick={handleResetTracks}
+            className={styles.resetButton}
+            style={{ marginLeft: '0.5rem' }}
+          >
+            ↻ Reset
+          </button>
+        </div>
 
-          <ExportButton receiptRef={null} />
+        <div className={styles.exportSection}>
+          <ExportButton />
         </div>
       </div>
 
-      <div className={styles.mainContent}>
-        <div className={styles.receiptWrapper}>
-          {receipt && <ThemedReceipt receipt={receipt} theme={currentTheme} />}
+      {editMode && (
+        <div className={styles.editPanel}>
+          <h3 className={styles.editPanelTitle}>Edit Tracks (Top {trackLimit} will be shown)</h3>
+          <div className={styles.tracksEditor}>
+            {customTracks.slice(0, 25).map((track, index) => (
+              <div key={index} className={`${styles.trackEditRow} ${index < trackLimit ? styles.active : styles.inactive}`}>
+                <span className={styles.trackNumber}>{index + 1}.</span>
+                <input
+                  type="text"
+                  value={track.name}
+                  onChange={(e) => handleTrackEdit(index, 'name', e.target.value)}
+                  placeholder="Track name"
+                  className={`${styles.trackInput} ${styles.trackNameInput}`}
+                />
+                <input
+                  type="text"
+                  value={track.artist}
+                  onChange={(e) => handleTrackEdit(index, 'artist', e.target.value)}
+                  placeholder="Artist"
+                  className={`${styles.trackInput} ${styles.trackArtistInput}`}
+                />
+                <input
+                  type="number"
+                  value={track.playCount}
+                  onChange={(e) => handleTrackEdit(index, 'playCount', e.target.value)}
+                  placeholder="Plays"
+                  min="1"
+                  max="999"
+                  className={`${styles.trackInput} ${styles.trackPlaysInput}`}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <div className={styles.content}>
+        <div className={styles.receiptContainer}>
+          {state.receipt && (
+            <ThemedReceipt receipt={state.receipt} theme={currentTheme} />
+          )}
         </div>
 
         <div className={styles.sidePanel}>
@@ -178,15 +221,6 @@ const Demo: React.FC = () => {
             onThemeChange={handleThemeChange}
           />
         </div>
-      </div>
-
-      <div className={styles.demoNote}>
-        <p>
-          <strong>Demo Mode:</strong> Using sample data for demonstration.
-          <a href="/" onClick={(e) => { e.preventDefault(); navigate('/'); }}>
-            {' '}Login with Spotify
-          </a> to use your real listening data!
-        </p>
       </div>
     </div>
   );

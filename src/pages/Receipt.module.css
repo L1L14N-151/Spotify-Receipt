@@ -431,3 +431,248 @@
     margin-top: 24px;
   }
 }
+
+/* Demo Mode Styles */
+.demoBadge {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 500px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  box-shadow: 0 2px 10px rgba(102, 126, 234, 0.4);
+  animation: pulse 2s infinite;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 2px 10px rgba(102, 126, 234, 0.4); }
+  50% { transform: scale(1.02); box-shadow: 0 4px 15px rgba(102, 126, 234, 0.6); }
+  100% { transform: scale(1); box-shadow: 0 2px 10px rgba(102, 126, 234, 0.4); }
+}
+
+.editButton {
+  padding: 0.625rem 1.25rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  background: linear-gradient(135deg, #333 0%, #444 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.editButton.active {
+  background: linear-gradient(135deg, #1db954 0%, #1ed760 100%);
+  color: #000;
+  box-shadow: 0 4px 12px rgba(29, 185, 84, 0.4);
+}
+
+.editButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.editButton:active {
+  transform: translateY(0);
+}
+
+.resetButton {
+  padding: 0.625rem 1.25rem;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #666 0%, #777 100%);
+  color: white;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.resetButton:hover {
+  background: linear-gradient(135deg, #777 0%, #888 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.resetButton:active {
+  transform: translateY(0);
+}
+
+.editPanel {
+  padding: 2rem 2.5rem;
+  background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, #1db954 0%, #1ed760 100%) 1;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+.editPanel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #1db954, transparent);
+  animation: sweep 3s infinite;
+}
+
+@keyframes sweep {
+  to { left: 100%; }
+}
+
+.editPanelTitle {
+  margin-bottom: 1.5rem;
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.editPanelTitle::before {
+  content: '♪';
+  color: #1db954;
+  font-size: 1.5rem;
+}
+
+.tracksEditor {
+  max-height: 360px;
+  overflow-y: auto;
+  padding-right: 0.75rem;
+  margin-right: -0.25rem;
+}
+
+.tracksEditor::-webkit-scrollbar {
+  width: 10px;
+}
+
+.tracksEditor::-webkit-scrollbar-track {
+  background: #0a0a0a;
+  border-radius: 5px;
+}
+
+.tracksEditor::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #333 0%, #555 100%);
+  border-radius: 5px;
+  border: 2px solid #0a0a0a;
+}
+
+.tracksEditor::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #444 0%, #666 100%);
+}
+
+.trackEditRow {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  align-items: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0.75rem;
+  border-radius: 12px;
+  background: rgba(40, 40, 40, 0.3);
+  border: 1px solid transparent;
+}
+
+.trackEditRow:hover {
+  background: rgba(40, 40, 40, 0.6);
+  transform: translateX(4px);
+  border-color: rgba(29, 185, 84, 0.2);
+}
+
+.trackEditRow.active {
+  background: linear-gradient(135deg, rgba(29, 185, 84, 0.1) 0%, rgba(30, 215, 96, 0.05) 100%);
+  border-color: rgba(29, 185, 84, 0.3);
+}
+
+.trackNumber {
+  width: 40px;
+  color: #666;
+  font-weight: 800;
+  font-size: 0.875rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.trackEditRow.active .trackNumber {
+  color: #1db954;
+  text-shadow: 0 0 10px rgba(29, 185, 84, 0.5);
+}
+
+.trackInput {
+  padding: 0.625rem 0.875rem;
+  background: #1a1a1a;
+  border: 2px solid #2a2a2a;
+  color: white;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+  font-weight: 500;
+}
+
+.trackInput:focus {
+  outline: none;
+  border-color: #1db954;
+  background: #222;
+  box-shadow: 0 0 0 4px rgba(29, 185, 84, 0.15), 0 0 20px rgba(29, 185, 84, 0.1);
+  transform: scale(1.02);
+}
+
+.trackInput:hover:not(:focus) {
+  border-color: #3a3a3a;
+  background: #1f1f1f;
+}
+
+.trackNameInput {
+  flex: 2.5;
+  min-width: 200px;
+}
+
+.trackArtistInput {
+  flex: 2;
+  min-width: 150px;
+}
+
+.trackPlaysInput {
+  width: 100px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.trackEditRow.inactive {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.trackEditRow.inactive .trackNumber {
+  color: #444;
+}
+
+.trackEditRow.inactive .trackInput {
+  background: #0f0f0f;
+  border-color: #1a1a1a;
+  color: #666;
+}
