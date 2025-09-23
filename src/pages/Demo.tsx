@@ -135,19 +135,41 @@ const Demo: React.FC = () => {
       <div className={styles.controls}>
         <div className={styles.controlsLeft}>
           <div className={styles.trackLimitSelector}>
-            <label htmlFor="trackLimit">Number of Tracks:</label>
-            <select
-              id="trackLimit"
-              value={trackLimit}
-              onChange={(e) => handleTrackLimitChange(Number(e.target.value) as 5 | 10 | 15 | 20 | 25)}
-              className={styles.select}
-            >
-              <option value="5">5 Tracks</option>
-              <option value="10">10 Tracks</option>
-              <option value="15">15 Tracks</option>
-              <option value="20">20 Tracks</option>
-              <option value="25">25 Tracks</option>
-            </select>
+            <label>Tracks:</label>
+            <div className={styles.trackLimitControls}>
+              <div className={styles.presetButtons}>
+                <button
+                  onClick={() => handleTrackLimitChange(5)}
+                  className={`${styles.presetButton} ${trackLimit === 5 ? styles.active : ''}`}
+                >
+                  5
+                </button>
+                <button
+                  onClick={() => handleTrackLimitChange(10)}
+                  className={`${styles.presetButton} ${trackLimit === 10 ? styles.active : ''}`}
+                >
+                  10
+                </button>
+                <button
+                  onClick={() => handleTrackLimitChange(15)}
+                  className={`${styles.presetButton} ${trackLimit === 15 ? styles.active : ''}`}
+                >
+                  15
+                </button>
+                <button
+                  onClick={() => handleTrackLimitChange(20)}
+                  className={`${styles.presetButton} ${trackLimit === 20 ? styles.active : ''}`}
+                >
+                  20
+                </button>
+                <button
+                  onClick={() => handleTrackLimitChange(25)}
+                  className={`${styles.presetButton} ${trackLimit === 25 ? styles.active : ''}`}
+                >
+                  25
+                </button>
+              </div>
+            </div>
           </div>
 
           <button

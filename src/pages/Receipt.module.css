@@ -119,6 +119,41 @@
   gap: 12px;
 }
 
+.trackLimitControls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.presetButtons {
+  display: flex;
+  gap: 4px;
+}
+
+.presetButton {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: #282828;
+  color: #b3b3b3;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.presetButton:hover {
+  background: #3e3e3e;
+  color: #fff;
+}
+
+.presetButton.active {
+  background: #1db954;
+  color: #000;
+  box-shadow: 0 0 0 2px rgba(29, 185, 84, 0.3);
+}
+
 .timeRangeSelector label,
 .trackLimitSelector label {
   font-weight: 400;
