@@ -51,14 +51,59 @@
 }
 
 /* Disabled state */
-.authButton:disabled {
-  opacity: 0.6;
+.authButton.disabled {
+  opacity: 0.3;
   cursor: not-allowed;
+  background: #333;
+  color: #666;
 }
 
-.authButton:disabled:hover {
+.authButton.disabled:hover {
   transform: none;
-  background: #1db954;
+  background: #333;
+}
+
+.authButton.disabled .spotifyLogo {
+  fill: #666;
+}
+
+/* Warning box */
+.warningBox {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: rgba(242, 147, 0, 0.1);
+  border: 1px solid rgba(242, 147, 0, 0.3);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  max-width: 400px;
+}
+
+.warningIcon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.warningText {
+  flex: 1;
+}
+
+.warningText strong {
+  display: block;
+  color: #f29300;
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.2px;
+}
+
+.warningText p {
+  margin: 0;
+  color: #b3b3b3;
+  font-size: 0.75rem;
+  line-height: 1.4;
 }
 
 /* Mobile */

@@ -35,10 +35,18 @@ const SpotifyAuth: React.FC<SpotifyAuthProps> = ({
 
   return (
     <div className={styles.authContainer}>
+      <div className={styles.warningBox}>
+        <span className={styles.warningIcon}>⚠️</span>
+        <div className={styles.warningText}>
+          <strong>Spotify Login Temporarily Unavailable</strong>
+          <p>Due to Spotify API limitations (25 user max), please use Demo Mode below to explore all features</p>
+        </div>
+      </div>
       <button
-        className={styles.authButton}
-        onClick={handleLogin}
-        aria-label="Connect with Spotify"
+        className={`${styles.authButton} ${styles.disabled}`}
+        onClick={(e) => e.preventDefault()}
+        aria-label="Connect with Spotify (Disabled)"
+        disabled
       >
         <svg
           className={styles.spotifyLogo}
@@ -51,9 +59,6 @@ const SpotifyAuth: React.FC<SpotifyAuthProps> = ({
         </svg>
         <span>Connect with Spotify</span>
       </button>
-      <p className={styles.authDescription}>
-        Connect your Spotify account to generate your listening receipt
-      </p>
     </div>
   );
 };
