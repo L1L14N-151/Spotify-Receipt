@@ -164,3 +164,38 @@
     gap: 4px;
   }
 }
+
+/* Polaroid note */
+.polaroidNote {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: rgba(29, 185, 84, 0.1);
+  border: 1px solid rgba(29, 185, 84, 0.2);
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.noteIcon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.noteText {
+  font-size: 0.75rem;
+  color: #b3b3b3;
+  line-height: 1.4;
+}

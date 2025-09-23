@@ -21,10 +21,17 @@ const themes = [
 
 const ThemeSelector: React.FC<ThemeSelectorProps> = ({ currentTheme, onThemeChange }) => {
   const availableThemes = ['cvs', 'casino', 'breakingbad', 'nasa', 'carrefour', 'matrix', 'mcdonalds', 'gaming', 'polaroid', 'github']; // All themes are now available
+  const isDemo = window.location.pathname === '/demo';
 
   return (
     <div className={styles.themeSelector}>
       <h3 className={styles.title}>Choose Theme</h3>
+      {currentTheme === 'polaroid' && isDemo && (
+        <div className={styles.polaroidNote}>
+          <span className={styles.noteIcon}>ℹ️</span>
+          <span className={styles.noteText}>In Demo Mode, Polaroid uses random images. With Spotify login, it displays real album covers.</span>
+        </div>
+      )}
       <div className={styles.themeGrid}>
         {themes.map((theme) => {
           const isAvailable = availableThemes.includes(theme.id);
