@@ -21,31 +21,31 @@ const Demo: React.FC = () => {
 
   // Initialize with default tracks
   const defaultTracks = [
-    { name: "Flowers", artist: "Miley Cyrus", playCount: 127 },
-    { name: "As It Was", artist: "Harry Styles", playCount: 89 },
-    { name: "Unholy", artist: "Sam Smith & Kim Petras", playCount: 76 },
-    { name: "Kill Bill", artist: "SZA", playCount: 65 },
-    { name: "Anti-Hero", artist: "Taylor Swift", playCount: 58 },
-    { name: "Cruel Summer", artist: "Taylor Swift", playCount: 52 },
-    { name: "Paint The Town Red", artist: "Doja Cat", playCount: 47 },
-    { name: "Vampire", artist: "Olivia Rodrigo", playCount: 43 },
-    { name: "Seven", artist: "Jung Kook feat. Latto", playCount: 38 },
-    { name: "What Was I Made For?", artist: "Billie Eilish", playCount: 35 },
-    { name: "Greedy", artist: "Tate McRae", playCount: 32 },
-    { name: "Strangers", artist: "Kenya Grace", playCount: 29 },
-    { name: "Water", artist: "Tyla", playCount: 27 },
-    { name: "Snooze", artist: "SZA", playCount: 24 },
-    { name: "Lovin On Me", artist: "Jack Harlow", playCount: 22 },
-    { name: "Agora Hills", artist: "Doja Cat", playCount: 19 },
-    { name: "Monaco", artist: "Bad Bunny", playCount: 17 },
-    { name: "Ella Baila Sola", artist: "Eslabon Armado", playCount: 15 },
-    { name: "Daylight", artist: "David Kushner", playCount: 13 },
-    { name: "Houdini", artist: "Dua Lipa", playCount: 11 },
-    { name: "Is It Over Now?", artist: "Taylor Swift", playCount: 9 },
-    { name: "Lala", artist: "Myke Towers", playCount: 7 },
-    { name: "Used To Be Young", artist: "Miley Cyrus", playCount: 5 },
-    { name: "Moonlight", artist: "Kali Uchis", playCount: 3 },
-    { name: "BZRP Music Sessions #53", artist: "Shakira & Bizarrap", playCount: 2 }
+    { name: "Flowers", artist: "Miley Cyrus", playCount: 847 },
+    { name: "As It Was", artist: "Harry Styles", playCount: 692 },
+    { name: "Unholy", artist: "Sam Smith & Kim Petras", playCount: 534 },
+    { name: "Kill Bill", artist: "SZA", playCount: 478 },
+    { name: "Anti-Hero", artist: "Taylor Swift", playCount: 423 },
+    { name: "Cruel Summer", artist: "Taylor Swift", playCount: 387 },
+    { name: "Paint The Town Red", artist: "Doja Cat", playCount: 342 },
+    { name: "Vampire", artist: "Olivia Rodrigo", playCount: 298 },
+    { name: "Seven", artist: "Jung Kook feat. Latto", playCount: 276 },
+    { name: "What Was I Made For?", artist: "Billie Eilish", playCount: 245 },
+    { name: "Greedy", artist: "Tate McRae", playCount: 218 },
+    { name: "Strangers", artist: "Kenya Grace", playCount: 193 },
+    { name: "Water", artist: "Tyla", playCount: 176 },
+    { name: "Snooze", artist: "SZA", playCount: 154 },
+    { name: "Lovin On Me", artist: "Jack Harlow", playCount: 132 },
+    { name: "Agora Hills", artist: "Doja Cat", playCount: 118 },
+    { name: "Monaco", artist: "Bad Bunny", playCount: 97 },
+    { name: "Ella Baila Sola", artist: "Eslabon Armado", playCount: 85 },
+    { name: "Daylight", artist: "David Kushner", playCount: 73 },
+    { name: "Houdini", artist: "Dua Lipa", playCount: 62 },
+    { name: "Is It Over Now?", artist: "Taylor Swift", playCount: 54 },
+    { name: "Lala", artist: "Myke Towers", playCount: 41 },
+    { name: "Used To Be Young", artist: "Miley Cyrus", playCount: 28 },
+    { name: "Moonlight", artist: "Kali Uchis", playCount: 19 },
+    { name: "BZRP Music Sessions #53", artist: "Shakira & Bizarrap", playCount: 12 }
   ];
 
   useEffect(() => {
@@ -221,7 +221,7 @@ const Demo: React.FC = () => {
                   onChange={(e) => handleTrackEdit(index, 'playCount', e.target.value)}
                   placeholder="Plays"
                   min="1"
-                  max="999"
+                  max="9999"
                   className={`${styles.trackInput} ${styles.trackPlaysInput}`}
                 />
               </div>
