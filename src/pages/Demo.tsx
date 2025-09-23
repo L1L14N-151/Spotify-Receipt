@@ -125,7 +125,7 @@ const Demo: React.FC = () => {
           <h1 className={styles.title}>Demo Mode</h1>
         </div>
         <div className={styles.userSection}>
-          <span className={styles.demoBadge}>🎮 Guest Mode</span>
+          <span className={styles.demoBadge}>Demo Mode</span>
           <button onClick={handleExitDemo} className={styles.logoutButton}>
             Exit Demo
           </button>
