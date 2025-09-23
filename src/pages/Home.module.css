@@ -87,6 +87,62 @@
   letter-spacing: 0;
 }
 
+/* Divider */
+.divider {
+  margin: 2rem 0;
+  position: relative;
+  text-align: center;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #282828;
+}
+
+.divider span {
+  background: #000;
+  padding: 0 1rem;
+  position: relative;
+  color: #535353;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Demo Button */
+.demoButton {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 0.875rem 1.75rem;
+  border-radius: 500px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 auto;
+  box-shadow: 0 4px 6px rgba(102, 126, 234, 0.2);
+  font-family: inherit;
+}
+
+.demoButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 12px rgba(102, 126, 234, 0.3);
+}
+
+.demoIcon {
+  font-size: 1.25rem;
+}
+
 /* Privacy text */
 .privacy {
   margin-top: 3rem;
@@ -95,6 +151,10 @@
   line-height: 1.5;
   padding-top: 2rem;
   border-top: 1px solid #282828;
+}
+
+.privacyIcon {
+  font-size: 0.875rem;
 }
 
 .privacyIcon {

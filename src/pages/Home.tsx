@@ -1,8 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import SpotifyAuth from '../components/SpotifyAuth/SpotifyAuth';
 import styles from './Home.module.css';
 
 const Home: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleDemoClick = () => {
+    navigate('/demo');
+  };
+
   return (
     <div className={styles.homeContainer}>
       <div className={styles.hero}>
@@ -29,6 +36,18 @@ const Home: React.FC = () => {
         </div>
 
         <SpotifyAuth />
+
+        <div className={styles.divider}>
+          <span>OR</span>
+        </div>
+
+        <button
+          onClick={handleDemoClick}
+          className={styles.demoButton}
+        >
+          <span className={styles.demoIcon}>🎮</span>
+          Try Demo Mode
+        </button>
 
         <p className={styles.privacy}>
           <span className={styles.privacyIcon}>🔒</span>

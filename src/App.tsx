@@ -4,6 +4,7 @@ import { AppProvider } from './context/AppContext';
 import Home from './pages/Home';
 import Callback from './pages/Callback';
 import Receipt from './pages/Receipt';
+import Demo from './pages/Demo';
 import authService from './services/auth/AuthService';
 import './styles/global.css';
 
@@ -115,6 +116,7 @@ function App({ initialAuth }: AppProps = {}): React.ReactElement {
                 )
               }
             />
+            <Route path="/demo" element={<Demo />} />
           </Routes>
         </div>
       </Router>
