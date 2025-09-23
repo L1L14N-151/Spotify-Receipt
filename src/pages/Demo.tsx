@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAppContext } from '../context/AppContext';
+import { AppContext } from '../context/AppContext';
 import ThemedReceipt from '../components/Receipt/ThemedReceipt';
 import ThemeSelector from '../components/ThemeSelector/ThemeSelector';
 import ExportButton from '../components/ExportButton/ExportButton';
@@ -12,7 +12,7 @@ import styles from './Receipt.module.css';
 
 const Demo: React.FC = () => {
   const navigate = useNavigate();
-  const { state, dispatch } = useAppContext();
+  const { state, dispatch } = useContext(AppContext);
   const { receipt } = state;
 
   const [currentTheme, setCurrentTheme] = useState('cvs');
@@ -21,11 +21,7 @@ const Demo: React.FC = () => {
   const [customTracks, setCustomTracks] = useState<DemoTrackInput[]>([]);
   const [newTrack, setNewTrack] = useState({ name: '', artist: '', playCount: 50 });
 
-  // Generate initial demo receipt
-  useEffect(() => {
-    generateDemoReceipt();
-  }, []);
-
+  // Generate demo receipt
   const generateDemoReceipt = () => {
     const tracks = customTracks.length > 0
       ? demoDataService.mixTracks(customTracks, trackLimit)
@@ -38,15 +34,18 @@ const Demo: React.FC = () => {
     dispatch({ type: 'SET_TRACKS', payload: tracks.slice(0, trackLimit) });
   };
 
+  // Generate initial demo receipt
+  useEffect(() => {
+    generateDemoReceipt();
+  }, [trackLimit, currentTheme, customTracks]);
+
   const handleThemeChange = (themeId: string) => {
     setCurrentTheme(themeId);
     dispatch({ type: 'SET_THEME', payload: themeId });
-    generateDemoReceipt();
   };
 
   const handleTrackLimitChange = (limit: number) => {
     setTrackLimit(limit);
-    generateDemoReceipt();
   };
 
   const handleAddCustomTrack = () => {
@@ -63,7 +62,6 @@ const Demo: React.FC = () => {
   const handleResetToPreset = () => {
     setCustomTracks([]);
     setCustomMode(false);
-    generateDemoReceipt();
   };
 
   const handleExitDemo = () => {
